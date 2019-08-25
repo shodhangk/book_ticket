@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card card-login mx-auto mt-5">
+    <div class="card-header">Book now</div>
+    <div class="card-body">
+      <div>Show time: <%= @show.start_time_format %></div>
+      <div>Available seats: <%= @show.available_seats %></div>
+      <div>Ticket fare: <%= @show.ticket_fare %></div>
+      <%= form_for @booking do |f| %>
+        <div class="form-group">
+          <%= f.label :seats %><br />
+          <%= f.select(:seats, 1..@show.available_seats, :prompt => 1, class: "form-control") %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :amount %><br />
+          <%= f.text_field :amount, class: "form-control", disabled:true%>
+        </div>
+
+    
+        <div class="form-group">
+          <%= f.submit "Confirm Booking", class: "btn btn-primary btn-block"  %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    </div>

@@ -1,0 +1,30 @@
+<section>
+  <div class="container py-3">
+    <div class="card">
+      <div class="row ">
+        <div class="col-md-4">
+            <%= image_tag @movie.poster_url, class: "w-100" %>
+          </div>
+          <div class="col-md-8 px-3">
+            <div class="card-block px-3">
+              <h4 class="card-title"> <%= @movie.name%></h4>
+              <p class="card-text"><%= @movie.short_description%> </p>
+              <p class="card-text"><%= @movie.description%></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+    <h4>Shows</h4>
+  <% @shows.each do |show|%>
+  <div class="row theatre-list"> 
+     <div class="col-sm-6"><%=show.theatre.name%></div>
+     <div class="col-sm-3"><%=show.start_time_format%></div>
+     <div class="col-sm-3"><%= link_to 'Book now', new_booking_path, class: "btn btn-primary"%> </div>
+  </div>
+  <%end%>
+</div>
